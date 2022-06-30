@@ -27,10 +27,9 @@ class UsersController < ApplicationController
 
 
     def update
-        # debugger
         @user = User.find(params[:id])
         if @user.update(user_params)
-            redirect_to user_url(@user)
+            redirect_to user_url
         else
             render json: @user.errors.full_messages, status: unprocessable_entity
         end
